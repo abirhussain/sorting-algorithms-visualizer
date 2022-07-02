@@ -1,14 +1,13 @@
-import "./App.css";
-import Bar from "./components/Bar/Bar";
+import "./App.css"
+import {useSelector} from "react-redux"
 
 function App() {
+  const counter = useSelector((state)=>state.counter.counter)
   return (
-    <>
-      <div className="array-bar-position">
-        <Bar value={70} />
-        <Bar value={40} />
-      </div>
-    </>
+    <div className="App">
+      <h1>Sorting Algorithms Visualizer</h1>
+      <h2>Counter Value: {counter}</h2>
+    </div>
   );
 }
 
