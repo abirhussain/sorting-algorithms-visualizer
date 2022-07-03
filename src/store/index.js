@@ -1,20 +1,19 @@
-import { configureStore, createSlice } from '@reduxjs/toolkit'
+import { configureStore } from '@reduxjs/toolkit'
+import algorithmSlice from './algorithmSlice';
+import arraySlice from './arraySlice';
+import bubbleSortSlice from './bubbleSortSlice';
+import runningSlice from './runningSlice';
+import sortedSlice from './sortedSlice';
+import swapperSlice from './swapperSlice';
 
-
-const counter = createSlice({
-    name:'counter',
-    initialState: {counter: 0},
-    reducers: {
-        increment(state, action){
-            state.counter++
-        }
-    }
-})
-
-export const actions = counter.actions;
 const store = configureStore({
     reducer: {
-        counter: counter.reducer
+        swapper: swapperSlice.reducer,
+        array: arraySlice.reducer,
+        sorted: sortedSlice.reducer,
+        running: runningSlice.reducer,
+        bubbleSort: bubbleSortSlice.reducer,
+        algorithm: algorithmSlice.reducer,
     }
 })
 
