@@ -5,6 +5,7 @@ import { sortedActions } from "../../store/sortedSlice";
 import { runningSliceActions } from "../../store/runningSlice";
 import { algorithmActions } from "../../store/algorithmSlice";
 import bubbleSort from "../../algorithms/BubbleSort";
+import mergeSort from "../../algorithms/MergeSort";
 
 const Toolbar = () => {
   const algorithm = useSelector(state => state.algorithm.algorithm)
@@ -42,7 +43,7 @@ const Toolbar = () => {
   }
 
   const sort = (algorithm, array, speed) => {
-    let doSort = algorithm === "bubbleSort" ? bubbleSort : null;
+    let doSort = algorithm === "bubbleSort" ? bubbleSort : algorithm === "mergeSort" ?mergeSort:null;
     dispatch(sortedActions.setCurrentSorted([]))
     dispatch(runningSliceActions.setRunning(true))
     doSort(array, dispatch, speed);
